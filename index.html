@@ -32,6 +32,16 @@
     gapi.load('client:auth2:cloudsearch-widget', initializeApp)
   }
   
+  function loadConfiguration() {
+    return fetch('/config.json').then(function(response) {
+      return response.json();
+    }).then(function(config) {
+      this.clientId = config.clientId;
+      this.searchApplicationName = config.searchAppId;
+      return config;
+    });
+  }
+  
   /**
    * Initialize the app after loading the Google API client &
    * Cloud Search widget.
