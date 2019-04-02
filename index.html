@@ -33,7 +33,7 @@
   }
   
   function loadConfiguration() {
-    return fetch('/config.json').then(function(response) {
+    return fetch('config.json').then(function(response) {
       return response.json();
     }).then(function(config) {
       this.clientId = config.clientId;
